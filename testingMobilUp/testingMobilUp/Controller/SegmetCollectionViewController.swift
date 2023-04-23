@@ -15,9 +15,14 @@ class SegmetCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.segmentCollection.delegate = self
+        self.segmentCollection.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        segmentCollection.reloadData()
+    }
 
     
 
@@ -30,7 +35,7 @@ extension SegmetCollectionViewController: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "almubCell", for: indexPath) as? CollectionViewCell {
+        if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "almubCell", for: indexPath) as? SegmentCollectionViewCell {
             itemCell.album = imageCollectionArray[indexPath.row]
             return itemCell
         }

@@ -9,13 +9,15 @@ import UIKit
 
 class SegmentCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var segmentImage: UIImageView! {
+    @IBOutlet weak var segmentImage: UIImageView!
+        
+    
+    
+    var album: AlbumModel? {
         didSet {
             guard let image = album?.imageAlbomData else { return }
-            segmentImage.image = UIImage(systemName: image)
+                segmentImage.image = UIImage(systemName: image)
         }
     }
-    
-    var album: AlbumModel?
     
 }

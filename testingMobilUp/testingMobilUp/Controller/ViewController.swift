@@ -11,12 +11,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var vkButton: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginCheck(login: LoginModel().islogin)
     }
-
+    
 
     @IBAction func authorizationVkButton(_ sender: Any) {
         

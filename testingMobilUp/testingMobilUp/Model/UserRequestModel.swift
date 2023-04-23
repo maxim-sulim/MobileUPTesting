@@ -15,6 +15,8 @@ protocol UserProtocolOAthVk {
     var display: String { get set }
     var scope: String { get set }
     var response_type: String { get set }
+    var code: String { get set }
+    var client_secret: String { get set }
 }
 
 
@@ -25,5 +27,7 @@ struct UserVk: UserProtocolOAthVk {
     var display: String
     var scope: String
     var response_type: String
+    var code: String
+    var client_secret: String
 }
 

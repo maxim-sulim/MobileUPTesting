@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Opn-uH-ige">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="testingMobilUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="testingMobileUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,17 +100,17 @@
                     <navigationItem key="navigationItem" id="gBA-gL-G3v"/>
                     <connections>
                         <outlet property="vkButton" destination="OTD-Xw-oJo" id="ITk-zs-l6m"/>
-                        <segue destination="Opn-uH-ige" kind="show" id="aI8-7c-tWQ"/>
+                        <segue destination="Opn-uH-ige" kind="show" id="Jxm-aj-Qzp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1269.4656488549617" y="55.633802816901408"/>
+            <point key="canvasLocation" x="1268" y="56"/>
         </scene>
         <!--MobileUp Gallery-->
         <scene sceneID="w9t-ye-7pl">
             <objects>
-                <viewController id="Opn-uH-ige" customClass="CollectionViewController" customModule="testingMobilUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Opn-uH-ige" customClass="CollectionViewController" customModule="testingMobileUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i38-iI-IkA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,14 +125,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="almubCell" id="lIn-PK-xeG" customClass="CollectionViewCell" customModule="testingMobilUp" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="almubCell" id="lIn-PK-xeG" customClass="CollectionViewCell" customModule="testingMobileUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="186" height="186"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Nrx-J1-GKz">
                                             <rect key="frame" x="0.0" y="0.0" width="186" height="186"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SPV-hE-Qs8">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SPV-hE-Qs8">
                                                     <rect key="frame" x="0.0" y="0.0" width="186" height="186"/>
                                                 </imageView>
                                             </subviews>
@@ -168,17 +168,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yc-qx-hSC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1269" y="787"/>
+            <point key="canvasLocation" x="1269" y="796"/>
         </scene>
         <!--Segmet Collection View Controller-->
         <scene sceneID="3Pr-qw-Yuk">
             <objects>
-                <viewController id="bb4-Yq-vhF" customClass="SegmetCollectionViewController" customModule="testingMobilUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bb4-Yq-vhF" customClass="SegmetCollectionViewController" customModule="testingMobileUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UgY-Md-eqe">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6qL-rm-Jyr">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6qL-rm-Jyr">
                                 <rect key="frame" x="9" y="218" width="375" height="375"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0O4-Uu-9BY">
@@ -188,7 +188,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DM0-JI-sI6" customClass="SegmentCollectionViewCell" customModule="testingMobilUp" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="almubCell" id="DM0-JI-sI6" customClass="SegmentCollectionViewCell" customModule="testingMobileUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="M1q-wo-nKM">
@@ -230,12 +230,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pn8-7h-UcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252.6717557251909" y="786.61971830985919"/>
+            <point key="canvasLocation" x="2253" y="796"/>
         </scene>
         <!--Authorization View Controller-->
         <scene sceneID="EJV-UY-h6y">
             <objects>
-                <viewController id="T6y-dt-eRT" customClass="AuthorizationViewController" customModule="testingMobilUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="T6y-dt-eRT" customClass="AuthorizationViewController" customModule="testingMobileUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZVb-6t-pz9">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -261,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VeL-bX-1Tp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2253" y="-88"/>
+            <point key="canvasLocation" x="2253" y="56"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SFX-zw-4CM">

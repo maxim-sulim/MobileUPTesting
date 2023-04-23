@@ -32,9 +32,9 @@ class CollectionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showSegmentVC" {
             if let vc = segue.destination as? SegmetCollectionViewController {
-                let albom = sender as? [AlbumModel]
-                print(albom ?? "nil")
-                vc.imageCollectionArray = albom!
+                let album = sender as? [AlbumModel]
+                print(album ?? "nil")
+                vc.imageCollectionArray = album!
             }
         }
     }
@@ -58,7 +58,8 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let album = imageCollectionArray[indexPath.row]
+        let album = imageCollectionArray
+        
         self.performSegue(withIdentifier: "showSegmentVC", sender: album)
     }
     

@@ -8,19 +8,20 @@
 import Foundation
 
 protocol LoginModelProtocol {
-    var islogin: Bool { get set }
-    var token: String { get set }
+    var islogin: Bool { get }
+    var token: String? { get set }
+    var sessionToken: String? { get set }
+    var userId: String? { get set }
 }
 
 class LoginModel: LoginModelProtocol {
-
-    var islogin = false
-    
-    var token = "" {
-        didSet {
-            islogin = true
+    var islogin: Bool {
+        if token != nil {
+            return true
         }
+        return false
     }
-    
-    
+    var token: String?
+    var sessionToken: String?
+    var userId: String?
 }
