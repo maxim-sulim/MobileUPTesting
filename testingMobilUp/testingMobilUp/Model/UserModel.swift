@@ -19,18 +19,11 @@ protocol UserProtocolOAthVk {
 
 
 struct UserVk: UserProtocolOAthVk {
-    
     var uri_vk_app: String
-    
     var client_id: String
-    
     var redirect_uri: String
-    
     var display: String
-    
     var scope: String
-    
     var response_type: String
-    
 }
 

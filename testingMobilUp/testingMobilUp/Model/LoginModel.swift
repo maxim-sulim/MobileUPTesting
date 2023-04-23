@@ -5,8 +5,7 @@
 //  Created by Максим Сулим on 21.04.2023.
 //
 
-import UIKit
-
+import Foundation
 
 protocol LoginModelProtocol {
     var islogin: Bool { get set }

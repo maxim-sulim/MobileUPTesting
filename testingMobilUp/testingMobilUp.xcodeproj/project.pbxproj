@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		AB5DF4B829F2C5C500C3D0A9 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5DF4B729F2C5C500C3D0A9 /* AuthorizationViewController.swift */; };
-		AB5DF4BA29F2E06200C3D0A9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5DF4B929F2E06200C3D0A9 /* Model.swift */; };
+		AB5DF4BA29F2E06200C3D0A9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5DF4B929F2E06200C3D0A9 /* UserModel.swift */; };
 		AB5DF4BC29F3220B00C3D0A9 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5DF4BB29F3220B00C3D0A9 /* LoginModel.swift */; };
 		AB5DF4C029F3246A00C3D0A9 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5DF4BF29F3246A00C3D0A9 /* CollectionViewController.swift */; };
-		AB5DF4C229F3F78A00C3D0A9 /* WebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5DF4C129F3F78A00C3D0A9 /* WebViewDelegate.swift */; };
+		AB5DF4C829F50DFF00C3D0A9 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5DF4C729F50DFF00C3D0A9 /* CollectionViewCell.swift */; };
+		AB5DF4CB29F5106600C3D0A9 /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5DF4CA29F5106600C3D0A9 /* AlbumModel.swift */; };
+		AB5DF4CD29F529FD00C3D0A9 /* SegmetCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5DF4CC29F529FD00C3D0A9 /* SegmetCollectionViewController.swift */; };
+		AB5DF4CF29F52D1100C3D0A9 /* SegmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5DF4CE29F52D1100C3D0A9 /* SegmentCollectionViewCell.swift */; };
 		ABF3C09E29F1E522007FFA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF3C09D29F1E522007FFA30 /* AppDelegate.swift */; };
 		ABF3C0A029F1E522007FFA30 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF3C09F29F1E522007FFA30 /* SceneDelegate.swift */; };
 		ABF3C0A229F1E522007FFA30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF3C0A129F1E522007FFA30 /* ViewController.swift */; };
@@ -22,10 +25,13 @@
 
 /* Begin PBXFileReference section */
 		AB5DF4B729F2C5C500C3D0A9 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
-		AB5DF4B929F2E06200C3D0A9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		AB5DF4B929F2E06200C3D0A9 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		AB5DF4BB29F3220B00C3D0A9 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		AB5DF4BF29F3246A00C3D0A9 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		AB5DF4C129F3F78A00C3D0A9 /* WebViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewDelegate.swift; sourceTree = "<group>"; };
+		AB5DF4C729F50DFF00C3D0A9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		AB5DF4CA29F5106600C3D0A9 /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
+		AB5DF4CC29F529FD00C3D0A9 /* SegmetCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmetCollectionViewController.swift; sourceTree = "<group>"; };
+		AB5DF4CE29F52D1100C3D0A9 /* SegmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCollectionViewCell.swift; sourceTree = "<group>"; };
 		ABF3C09A29F1E522007FFA30 /* testingMobilUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testingMobilUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF3C09D29F1E522007FFA30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABF3C09F29F1E522007FFA30 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +53,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB5DF4C529F50AA900C3D0A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AB5DF4B929F2E06200C3D0A9 /* UserModel.swift */,
+				AB5DF4BB29F3220B00C3D0A9 /* LoginModel.swift */,
+				AB5DF4CA29F5106600C3D0A9 /* AlbumModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AB5DF4C629F50B6F00C3D0A9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ABF3C0A129F1E522007FFA30 /* ViewController.swift */,
+				AB5DF4B729F2C5C500C3D0A9 /* AuthorizationViewController.swift */,
+				AB5DF4BF29F3246A00C3D0A9 /* CollectionViewController.swift */,
+				AB5DF4CC29F529FD00C3D0A9 /* SegmetCollectionViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AB5DF4C929F50E2C00C3D0A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AB5DF4C729F50DFF00C3D0A9 /* CollectionViewCell.swift */,
+				AB5DF4CE29F52D1100C3D0A9 /* SegmentCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		ABF3C09129F1E522007FFA30 = {
 			isa = PBXGroup;
 			children = (
@@ -68,12 +104,9 @@
 			children = (
 				ABF3C09D29F1E522007FFA30 /* AppDelegate.swift */,
 				ABF3C09F29F1E522007FFA30 /* SceneDelegate.swift */,
-				AB5DF4B929F2E06200C3D0A9 /* Model.swift */,
-				AB5DF4BB29F3220B00C3D0A9 /* LoginModel.swift */,
-				ABF3C0A129F1E522007FFA30 /* ViewController.swift */,
-				AB5DF4B729F2C5C500C3D0A9 /* AuthorizationViewController.swift */,
-				AB5DF4C129F3F78A00C3D0A9 /* WebViewDelegate.swift */,
-				AB5DF4BF29F3246A00C3D0A9 /* CollectionViewController.swift */,
+				AB5DF4C529F50AA900C3D0A9 /* Model */,
+				AB5DF4C929F50E2C00C3D0A9 /* View */,
+				AB5DF4C629F50B6F00C3D0A9 /* Controller */,
 				ABF3C0A329F1E523007FFA30 /* Main.storyboard */,
 				ABF3C0A629F1E524007FFA30 /* Assets.xcassets */,
 				ABF3C0A829F1E524007FFA30 /* LaunchScreen.storyboard */,
@@ -153,14 +186,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB5DF4BA29F2E06200C3D0A9 /* Model.swift in Sources */,
+				AB5DF4BA29F2E06200C3D0A9 /* UserModel.swift in Sources */,
 				AB5DF4BC29F3220B00C3D0A9 /* LoginModel.swift in Sources */,
+				AB5DF4C829F50DFF00C3D0A9 /* CollectionViewCell.swift in Sources */,
 				ABF3C0A229F1E522007FFA30 /* ViewController.swift in Sources */,
+				AB5DF4CB29F5106600C3D0A9 /* AlbumModel.swift in Sources */,
 				ABF3C09E29F1E522007FFA30 /* AppDelegate.swift in Sources */,
-				AB5DF4C229F3F78A00C3D0A9 /* WebViewDelegate.swift in Sources */,
 				AB5DF4C029F3246A00C3D0A9 /* CollectionViewController.swift in Sources */,
 				ABF3C0A029F1E522007FFA30 /* SceneDelegate.swift in Sources */,
+				AB5DF4CF29F52D1100C3D0A9 /* SegmentCollectionViewCell.swift in Sources */,
 				AB5DF4B829F2C5C500C3D0A9 /* AuthorizationViewController.swift in Sources */,
+				AB5DF4CD29F529FD00C3D0A9 /* SegmetCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,25 +23,7 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate  {
     var webView: WKWebView!
     var token = LoginModel().token
     
-    func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
-        guard let url = webView.url,
-                     url.path == "/blank.html",
-                     let fragment = url.fragment  else { return }
-               let parsing = fragment.components(separatedBy: "&")
-                   .map{$0.components(separatedBy: "=")} .reduce([String:String]()) {
-                       res, pars in
-                       var dict = res
-                       let key = pars[0]
-                       let value = pars[1]
-                       dict[key] = value
-                       return dict
-                   }
-               if let accessTocen = parsing["access_token"] {
-                   LoginModel().token = accessTocen
-               } else {
-                   //alert error
-               }
-    }
+  //MARK: работа жизненого цикла
     
     override func loadView() {
             let webConfiguration = WKWebViewConfiguration()
@@ -62,10 +44,40 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate  {
         ])
        */
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         authorizationVk()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        let alertController = UIAlertController(title: "Предупреждение", message: "точно выйти?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(cancel)
+        self.present(alertController, animated: true)
+        
+    }
+    
+    //MARK: раобота с сетью
+    
+    func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+        guard let url = webView.url,
+                     url.path == "/blank.html",
+                     let fragment = url.fragment  else { return }
+               let parsing = fragment.components(separatedBy: "&")
+                   .map{$0.components(separatedBy: "=")} .reduce([String:String]()) {
+                       res, pars in
+                       var dict = res
+                       let key = pars[0]
+                       let value = pars[1]
+                       dict[key] = value
+                       return dict
+                   }
+               if let accessTocen = parsing["access_token"] {
+                   LoginModel().token = accessTocen
+               } else {
+                   //alert error
+               }
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
