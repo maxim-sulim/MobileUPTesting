@@ -16,12 +16,16 @@
 		AB5DF4CD29F529FD00C3D0A9 /* SegmetCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5DF4CC29F529FD00C3D0A9 /* SegmetCollectionViewController.swift */; };
 		AB5DF4CF29F52D1100C3D0A9 /* SegmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5DF4CE29F52D1100C3D0A9 /* SegmentCollectionViewCell.swift */; };
 		AB5DF4D129F57A2600C3D0A9 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5DF4D029F57A2600C3D0A9 /* UserStorage.swift */; };
+		AB5DF4D329F6922700C3D0A9 /* DataUpdateLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5DF4D229F6922700C3D0A9 /* DataUpdateLog.swift */; };
 		ABF3C09E29F1E522007FFA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF3C09D29F1E522007FFA30 /* AppDelegate.swift */; };
 		ABF3C0A029F1E522007FFA30 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF3C09F29F1E522007FFA30 /* SceneDelegate.swift */; };
 		ABF3C0A229F1E522007FFA30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF3C0A129F1E522007FFA30 /* ViewController.swift */; };
 		ABF3C0A529F1E523007FFA30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF3C0A329F1E523007FFA30 /* Main.storyboard */; };
 		ABF3C0A729F1E524007FFA30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABF3C0A629F1E524007FFA30 /* Assets.xcassets */; };
 		ABF3C0AA29F1E524007FFA30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF3C0A829F1E524007FFA30 /* LaunchScreen.storyboard */; };
+		ABFCC9CF29F71F3F00DF9D68 /* AlbumRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFCC9CE29F71F3F00DF9D68 /* AlbumRequestModel.swift */; };
+		ABFCC9D729F73BE900DF9D68 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ABFCC9D629F73BE900DF9D68 /* Alamofire */; };
+		ABFCC9D929F742FA00DF9D68 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFCC9D829F742FA00DF9D68 /* ImageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,7 @@
 		AB5DF4CC29F529FD00C3D0A9 /* SegmetCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmetCollectionViewController.swift; sourceTree = "<group>"; };
 		AB5DF4CE29F52D1100C3D0A9 /* SegmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB5DF4D029F57A2600C3D0A9 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
+		AB5DF4D229F6922700C3D0A9 /* DataUpdateLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUpdateLog.swift; sourceTree = "<group>"; };
 		ABF3C09A29F1E522007FFA30 /* testingMobileUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testingMobileUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF3C09D29F1E522007FFA30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABF3C09F29F1E522007FFA30 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +47,8 @@
 		ABF3C0A629F1E524007FFA30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABF3C0A929F1E524007FFA30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABF3C0AB29F1E524007FFA30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABFCC9CE29F71F3F00DF9D68 /* AlbumRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRequestModel.swift; sourceTree = "<group>"; };
+		ABFCC9D829F742FA00DF9D68 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABFCC9D729F73BE900DF9D68 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +69,8 @@
 				AB5DF4B929F2E06200C3D0A9 /* UserRequestModel.swift */,
 				AB5DF4BB29F3220B00C3D0A9 /* LoginModel.swift */,
 				AB5DF4CA29F5106600C3D0A9 /* AlbumModel.swift */,
+				ABFCC9CE29F71F3F00DF9D68 /* AlbumRequestModel.swift */,
+				ABFCC9D829F742FA00DF9D68 /* ImageViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,6 +117,7 @@
 				ABF3C09D29F1E522007FFA30 /* AppDelegate.swift */,
 				ABF3C09F29F1E522007FFA30 /* SceneDelegate.swift */,
 				AB5DF4D029F57A2600C3D0A9 /* UserStorage.swift */,
+				AB5DF4D229F6922700C3D0A9 /* DataUpdateLog.swift */,
 				AB5DF4C529F50AA900C3D0A9 /* Model */,
 				AB5DF4C929F50E2C00C3D0A9 /* View */,
 				AB5DF4C629F50B6F00C3D0A9 /* Controller */,
@@ -134,6 +145,9 @@
 			dependencies = (
 			);
 			name = testingMobileUp;
+			packageProductDependencies = (
+				ABFCC9D629F73BE900DF9D68 /* Alamofire */,
+			);
 			productName = testingMobilUp;
 			productReference = ABF3C09A29F1E522007FFA30 /* testingMobileUp.app */;
 			productType = "com.apple.product-type.application";
@@ -162,6 +176,9 @@
 				Base,
 			);
 			mainGroup = ABF3C09129F1E522007FFA30;
+			packageReferences = (
+				ABFCC9D529F73BE900DF9D68 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = ABF3C09B29F1E522007FFA30 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -195,10 +212,13 @@
 				ABF3C0A229F1E522007FFA30 /* ViewController.swift in Sources */,
 				AB5DF4CB29F5106600C3D0A9 /* AlbumModel.swift in Sources */,
 				ABF3C09E29F1E522007FFA30 /* AppDelegate.swift in Sources */,
+				ABFCC9D929F742FA00DF9D68 /* ImageViewModel.swift in Sources */,
 				AB5DF4C029F3246A00C3D0A9 /* CollectionViewController.swift in Sources */,
 				ABF3C0A029F1E522007FFA30 /* SceneDelegate.swift in Sources */,
 				AB5DF4D129F57A2600C3D0A9 /* UserStorage.swift in Sources */,
+				ABFCC9CF29F71F3F00DF9D68 /* AlbumRequestModel.swift in Sources */,
 				AB5DF4CF29F52D1100C3D0A9 /* SegmentCollectionViewCell.swift in Sources */,
+				AB5DF4D329F6922700C3D0A9 /* DataUpdateLog.swift in Sources */,
 				AB5DF4B829F2C5C500C3D0A9 /* AuthorizationViewController.swift in Sources */,
 				AB5DF4CD29F529FD00C3D0A9 /* SegmetCollectionViewController.swift in Sources */,
 			);
@@ -426,6 +446,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ABFCC9D529F73BE900DF9D68 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ABFCC9D629F73BE900DF9D68 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABFCC9D529F73BE900DF9D68 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ABF3C09229F1E522007FFA30 /* Project object */;
 }

@@ -10,7 +10,8 @@ import Foundation
 
 protocol UserStorageProtocol {
     func load() -> LoginModelProtocol
-    func save(loginModelProtocol: LoginModelProtocol)
+    func saveToken(loginModelProtocol: LoginModelProtocol)
+    func saveUserId(loginModelProtocol: LoginModelProtocol)
 }
 
 class UserStorage: UserStorageProtocol {
@@ -19,16 +20,21 @@ class UserStorage: UserStorageProtocol {
     private var storageKey = "storageKey"
         
     func load() -> LoginModelProtocol {
-        var token = storage.string(forKey: storageKey) ?? ""
+        let token = storage.string(forKey: storageKey) ?? ""
         var veryToken:LoginModelProtocol = LoginModel()
         veryToken.token = token
         return veryToken
     }
     
-    func save(loginModelProtocol: LoginModelProtocol) {
+    func saveToken(loginModelProtocol: LoginModelProtocol) {
         var token = ""
         token = loginModelProtocol.token!
         storage.set(token, forKey: storageKey)
+    }
+    func saveUserId(loginModelProtocol: LoginModelProtocol) {
+        var id = ""
+        id = loginModelProtocol.userId!
+        storage.set(id, forKey: storageKey)
     }
     
 }

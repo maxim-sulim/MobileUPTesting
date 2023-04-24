@@ -16,7 +16,8 @@ protocol AlbumModelProtocol {
 
 
 struct AlbumModel: AlbumModelProtocol {
-    //var idAlbum: String
     var imageAlbomData: String //data
     //var imageCount: Int
+    //var imageDataUnix: "String"
+    //var urlImage: "String"
 }

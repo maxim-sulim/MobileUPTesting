@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class AuthorizationViewController: UIViewController, WKNavigationDelegate  {
+class AuthorizationViewController: UIViewController, WKNavigationDelegate, UIWebViewDelegate  {
     
     var storage: UserStorageProtocol = UserStorage()
     var codeToken: String?
@@ -30,13 +30,16 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate  {
     var modelToken:LoginModelProtocol = LoginModel()
     var userId:LoginModelProtocol = LoginModel()
     var sessionToken:LoginModelProtocol = LoginModel()
+    var handleCheckLogDelegate: DataUpdateLogProtocol?
     
   //MARK: работа жизненого цикла
     
     override func loadView() {
             let webConfiguration = WKWebViewConfiguration()
             webView = WKWebView(frame: .zero, configuration: webConfiguration)
+            //webView.uiDelegate
             webView.navigationDelegate = self
+        
             view = webView
         }
     
@@ -60,37 +63,14 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate  {
     
     //MARK: раобота с сетью
     
-    func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
-        guard let url = webView.url,
-              url.path == "/blank.html",
-              let fragment = url.fragment  else {
-            //alert
-            return }
-        let parsing = fragment.components(separatedBy: "&")
-            .map{$0.components(separatedBy: "=")} .reduce([String:String]()) {
-                res, pars in
-                var dict = res
-                let key = pars[0]
-                let value = pars[1]
-                dict[key] = value
-                return dict
-            }
-        if let code = parsing["code"] {
-            // получаю ответ сервера, нахожу code и делаю запрос на токен
-            parsToken(code: code)
-        }
-         else {
-            //alert
-        }
-    }
-    
     //запрашивает у делегата разрешение на переход к новому контенту после того , как известен ответ на запрос
-     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse) async -> WKNavigationResponsePolicy {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse) async -> WKNavigationResponsePolicy {
         guard let url = webView.url,
               url.path == "/blank.html",
               let fragment = url.fragment else {
             return .allow//alert
         }
+        
         let parsing = fragment.components(separatedBy: "&")
             .map{$0.components(separatedBy: "=")} .reduce([String:String]()) {
                 res, pars in
@@ -103,22 +83,24 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate  {
         if let accessTocen = parsing["access_token"],
            let sessionSec = parsing["expires_in"],
            let userIdStr = parsing["user_id"] {
-            
+        
             userId.userId = userIdStr
-            storage.save(loginModelProtocol: userId)
+            //storage.save(loginModelProtocol: userId)
             sessionToken.sessionToken = sessionSec
             modelToken.token = accessTocen
-            storage.save(loginModelProtocol: modelToken)
+            //storage.save(loginModelProtocol: modelToken)
             
             self.dismiss(animated: true) {
                    // переход через делегат
+                self.handleCheckLogDelegate?.loginCheck(isLogin: true)
+            
               }
         } else {
             //alert
         }
         return .cancel
     }
-    
+
     
     // запрос на авторизацию
     private func authorizationVk () {
@@ -132,8 +114,7 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate  {
             URLQueryItem(name: "client_id", value: user.client_id),
             URLQueryItem(name: "redirect_uri", value: user.redirect_uri),
             URLQueryItem(name: "display", value: user.display),
-            //URLQueryItem(name: "scope", value: user.scope),
-            URLQueryItem(name: "response_type=", value: user.response_type)
+            URLQueryItem(name: "response_type", value: user.response_type)
         ]
         
             DispatchQueue.main.async {
