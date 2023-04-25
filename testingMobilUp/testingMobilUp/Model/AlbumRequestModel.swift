@@ -22,28 +22,26 @@ struct AlbomRequest: AlbumRequestModelProtocol {
     var access_token: String
 }
 
-struct Albums {
+//parsing
+
+struct Albums: Decodable {
     var response: Album
 }
 
-struct Album {
-    var item: [Image]
+struct Album: Decodable {
+    var items: [Image]
+    var count: Int
 }
 
-struct Image {
-    var size: [InfoImage]
+struct Image: Decodable {
+    var sizes: [InfoImage]
     var date: Int //doubl?
     
     }
 
 struct InfoImage: Decodable {
-    var widthImage: Int//d?
-    var heightImage: Int//double?
-    var urlImage: String
+    var height: Int
+    var width: Int
+    var url: String
     
-    enum CodingKeys: String, CodingKey {
-        case widthImage = "width"
-        case heightImage = "height"
-        case urlImage = "url"
-    }
 }

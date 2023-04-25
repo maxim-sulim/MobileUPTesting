@@ -7,6 +7,8 @@
 
 import UIKit
 
+//свойство, хранящее 
 protocol DataUpdateLogProtocol {
     func loginCheck(isLogin: Bool)
 }
+

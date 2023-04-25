@@ -6,27 +6,58 @@
 //
 
 import Foundation
-import Alamofire
 
 class ImageViewModel {
     
-    func getImage (token: String, complation: @escaping (InfoImage) -> ()) {
-        let url = "https://api.vk.com/method/photos.get"
+    var arrUrlImage: [String?] = []
+    
+    func getImage (token: String) {
+        var urlComp = URLComponents()
+        urlComp.scheme = "https"
+        urlComp.host = "api.vk.com"
+        urlComp.path = "/method/photos.get"
         
-        let params: Parameters = [
-            "access_token": token,
-            "owner_id": "-128666765",
-            "album_id": "266310117",
-            "v": "5.131",
+        urlComp.queryItems = [
+            URLQueryItem(name: "access_token", value: token),
+            URLQueryItem(name: "owner_id", value: "-128666765"),
+            URLQueryItem(name: "album_id", value: "266310117"),
+            URLQueryItem(name: "v", value: "5.131")
         ]
-        AF.request(url, method: .post, parameters: params).response { result in
-            if let data = result.data {
-                if let album = try? JSONDecoder().decode(InfoImage.self, from: data) {
-                    complation(album)
-                }
-            }
+        
+        let urlRequest = URLRequest(url: urlComp.url!)
+        URLSession.shared.dataTask(with: urlRequest) { data , response , error in
+        if let error = error {
+            print("error")
+            //alert
+            return
         }
+        guard let data = data else { return }
+        
+        do {
+           let arrJs = try? JSONDecoder().decode(Albums.self, from: data)
+            let arrItems = arrJs?.response.items
+            let count = arrItems?.count
+            
+            
+            guard let count = count else { return }
+            for i in 0..<count {
+                
+                let item = arrItems![i]   // 30 items
+                let image = item
+                let urlImage = image.sizes
+                let arrImageUrl = urlImage.last
+                let imageUrl = arrImageUrl?.url
+                self.arrUrlImage.append(imageUrl)
+                
+            }
+            print(arrJs?.response.items)
+        } catch {
+            print(error)
+        }
+        
+        } .resume()
+        
     }
     
-    
 }
+

@@ -14,7 +14,7 @@ class CollectionViewCell: UICollectionViewCell {
     var album: AlbumModel? {
         didSet {
             if let image = album?.imageAlbomData {
-                imageAlbum.image = UIImage(systemName: image)
+                imageAlbum.image = UIImage(data: image)
             }
         }
     }

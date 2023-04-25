@@ -16,7 +16,7 @@ class SegmentCollectionViewCell: UICollectionViewCell {
     var album: AlbumModel? {
         didSet {
             guard let image = album?.imageAlbomData else { return }
-                segmentImage.image = UIImage(systemName: image)
+                segmentImage.image = UIImage(data: image)
         }
     }
     
