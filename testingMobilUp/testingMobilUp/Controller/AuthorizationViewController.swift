@@ -88,7 +88,7 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate, UIWeb
                 return dict
             }
         if let accessToken = parsing["access_token"],
-           let sessionSec = parsing["expire_in"],
+           let sessionSec = parsing["expires_in"],
            let userIdStr = parsing["user_id"] {
         
             let loginModel = LoginModel(token: accessToken,
