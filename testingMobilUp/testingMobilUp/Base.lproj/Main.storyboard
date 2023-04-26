@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kU3-MJ-fgI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -28,7 +28,7 @@
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYo-n7-Cwf">
-                                <rect key="frame" x="0.0" y="204" width="375" height="126"/>
+                                <rect key="frame" x="0.0" y="160" width="375" height="126"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="126" id="ygv-d2-LU4"/>
                                 </constraints>
@@ -46,7 +46,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Up  Gallery" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSu-Je-mPI">
-                                <rect key="frame" x="24" y="214" width="227" height="106"/>
+                                <rect key="frame" x="24" y="170" width="227" height="106"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
                                 <nil key="textColor"/>
@@ -67,7 +67,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="authorizationVkButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z68-zo-Doq"/>
-                                    <segue destination="T6y-dt-eRT" kind="modal" identifier="showWebView" id="Gep-AN-7BQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -100,7 +99,6 @@
                     <navigationItem key="navigationItem" id="gBA-gL-G3v"/>
                     <connections>
                         <outlet property="vkButton" destination="OTD-Xw-oJo" id="ITk-zs-l6m"/>
-                        <segue destination="Opn-uH-ige" kind="show" identifier="showCollection" id="udn-tf-66Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -110,29 +108,29 @@
         <!--MobileUp Gallery-->
         <scene sceneID="w9t-ye-7pl">
             <objects>
-                <viewController storyboardIdentifier="showCollection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Opn-uH-ige" customClass="CollectionViewController" customModule="testingMobileUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="Opn-uH-ige" customClass="CollectionViewController" customModule="testingMobileUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i38-iI-IkA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C6g-uU-hot">
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
-                                <color key="backgroundColor" red="0.20392156859999999" green="0.39970532139999998" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="XHU-pZ-whi">
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="0.0" id="XHU-pZ-whi">
                                     <size key="itemSize" width="186" height="186"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="2"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="albumCell" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="albumCell" translatesAutoresizingMaskIntoConstraints="NO" id="s0R-tc-YdM" customClass="CollectionViewCell" customModule="testingMobileUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="186" height="186"/>
+                                        <rect key="frame" x="2" y="2" width="186" height="186"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3Q2-Hh-eOB">
                                             <rect key="frame" x="0.0" y="0.0" width="186" height="186"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KHM-b1-kFz">
+                                                <imageView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KHM-b1-kFz">
                                                     <rect key="frame" x="0.0" y="0.0" width="186" height="186"/>
                                                 </imageView>
                                             </subviews>
@@ -164,7 +162,14 @@
                             <constraint firstItem="hZ8-M5-tEE" firstAttribute="trailing" secondItem="C6g-uU-hot" secondAttribute="trailing" id="wog-x7-kgP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="MobileUp Gallery" id="TcL-JM-Q95"/>
+                    <navigationItem key="navigationItem" title="MobileUp Gallery" id="TcL-JM-Q95">
+                        <barButtonItem key="rightBarButtonItem" title="Выход" id="EaM-zr-ZKJ">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="logout:" destination="Opn-uH-ige" id="tQ5-wU-GOf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="albumCollection" destination="C6g-uU-hot" id="BTu-Tr-wVH"/>
                         <segue destination="bb4-Yq-vhF" kind="push" identifier="showSegmentVC" id="qX4-R6-AGJ"/>
@@ -172,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yc-qx-hSC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1267.9389312977098" y="795.77464788732402"/>
+            <point key="canvasLocation" x="2194.6564885496182" y="795.77464788732402"/>
         </scene>
         <!--Segmet Collection View Controller-->
         <scene sceneID="3Pr-qw-Yuk">
@@ -182,25 +187,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6qL-rm-Jyr">
-                                <rect key="frame" x="9" y="218" width="375" height="375"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6qL-rm-Jyr">
+                                <rect key="frame" x="0.0" y="218" width="393" height="375"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0O4-Uu-9BY">
-                                    <size key="itemSize" width="375" height="375"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="0O4-Uu-9BY">
+                                    <size key="itemSize" width="392" height="375"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="almubCell" id="DM0-JI-sI6" customClass="SegmentCollectionViewCell" customModule="testingMobileUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="almubCell" id="DM0-JI-sI6" customClass="SegmentCollectionViewCell" customModule="testingMobileUp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="392" height="375"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="M1q-wo-nKM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="392" height="375"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dbG-ca-XkU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dbG-ca-XkU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="392" height="375"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -210,7 +215,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="dbG-ca-XkU" secondAttribute="trailing" id="tVR-Dd-2hL"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="375" height="375"/>
+                                        <size key="customSize" width="392" height="375"/>
                                         <connections>
                                             <outlet property="segmentImage" destination="dbG-ca-XkU" id="gcU-o2-HJk"/>
                                         </connections>
@@ -222,30 +227,37 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6qL-rm-Jyr" firstAttribute="top" secondItem="POR-D2-h7o" secondAttribute="top" constant="115" id="N52-Vc-qAt"/>
-                            <constraint firstItem="6qL-rm-Jyr" firstAttribute="leading" secondItem="POR-D2-h7o" secondAttribute="leading" constant="9" id="buH-iP-4PG"/>
-                            <constraint firstItem="POR-D2-h7o" firstAttribute="trailing" secondItem="6qL-rm-Jyr" secondAttribute="trailing" constant="9" id="j8B-om-LQs"/>
+                            <constraint firstItem="6qL-rm-Jyr" firstAttribute="leading" secondItem="POR-D2-h7o" secondAttribute="leading" id="buH-iP-4PG"/>
+                            <constraint firstItem="POR-D2-h7o" firstAttribute="trailing" secondItem="6qL-rm-Jyr" secondAttribute="trailing" id="j8B-om-LQs"/>
                             <constraint firstItem="POR-D2-h7o" firstAttribute="bottom" secondItem="6qL-rm-Jyr" secondAttribute="bottom" constant="225" id="otf-SD-aDV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eJQ-16-E8v"/>
+                    <navigationItem key="navigationItem" id="eJQ-16-E8v" customClass="SegmentCollectionNabItem" customModule="testingMobileUp" customModuleProvider="target">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="g1r-m4-rvR">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="shareActon:" destination="bb4-Yq-vhF" id="B8e-v7-ztZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="segmentCollection" destination="6qL-rm-Jyr" id="9WX-h6-7v8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pn8-7h-UcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2253" y="796"/>
+            <point key="canvasLocation" x="3179.3893129770991" y="795.77464788732402"/>
         </scene>
         <!--Authorization View Controller-->
         <scene sceneID="EJV-UY-h6y">
             <objects>
                 <viewController storyboardIdentifier="showWebView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T6y-dt-eRT" customClass="AuthorizationViewController" customModule="testingMobileUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZVb-6t-pz9">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYP-qd-yYh">
-                                <rect key="frame" x="0.0" y="59" width="393" height="724"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -262,31 +274,33 @@
                             <constraint firstItem="yYP-qd-yYh" firstAttribute="leading" secondItem="e7P-zV-vgU" secondAttribute="leading" id="xpA-yh-esk"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Yi5-3w-w1w"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VeL-bX-1Tp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2253" y="56"/>
+            <point key="canvasLocation" x="2146" y="56"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="SFX-zw-4CM">
+        <scene sceneID="UjU-cS-uUC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kU3-MJ-fgI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="showCollection" automaticallyAdjustsScrollViewInsets="NO" id="yUC-yR-gUY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WTz-6B-vzg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lRD-DV-wrt">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ynX-lM-5cY"/>
+                        <segue destination="Opn-uH-ige" kind="relationship" relationship="rootViewController" id="GPz-7t-hYY"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mE3-lF-pD7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="McA-ML-eft" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="342.74809160305341" y="55.633802816901408"/>
+            <point key="canvasLocation" x="1267.9389312977098" y="795.77464788732402"/>
         </scene>
     </scenes>
     <resources>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

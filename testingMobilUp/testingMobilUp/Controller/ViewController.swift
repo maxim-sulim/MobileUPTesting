@@ -10,35 +10,38 @@ import UIKit
 class ViewController: UIViewController, DataUpdateLogProtocol {
     
     
-    var isLogin = true
+    private var storage: UserStorageProtocol = UserStorage()
     
-    func loginCheck(isLogin: Bool) {
-        self.isLogin = isLogin
+    var token: LoginModelProtocol {
+        storage.load()
+    }
+    
+    func loginCheck() {
+        if token.islogin == true {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let editStrean = storyboard.instantiateViewController(withIdentifier: "showCollection")
+            editStrean.modalPresentationStyle = .fullScreen
+            self.present(editStrean, animated: true)
+        }
     }
     
     @IBOutlet weak var vkButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loginCheck()
     }
    
     @IBAction func authorizationVkButton(_ sender: Any) {
-        
-        if isLogin == true {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let editStrean = storyboard.instantiateViewController(withIdentifier: "showCollection") as! CollectionViewController
-            self.navigationController?.pushViewController(editStrean, animated: true)
-        } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let editStrean = storyboard.instantiateViewController(withIdentifier: "showWebView") as! AuthorizationViewController
             // устанавливаем текущий класс в качестве делегата
             editStrean.handleCheckLogDelegate = self
-            self.navigationController?.pushViewController(editStrean, animated: true)
-            self.dismiss(animated: true)
-        }
+            self.present(editStrean, animated: true)
     }
-    
-    
 }
 

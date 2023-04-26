@@ -14,7 +14,7 @@ protocol LoginModelProtocol {
     var userId: String? { get set }
 }
 
-class LoginModel: LoginModelProtocol {
+struct LoginModel: LoginModelProtocol {
     var islogin: Bool {
         if token != nil {
             return true

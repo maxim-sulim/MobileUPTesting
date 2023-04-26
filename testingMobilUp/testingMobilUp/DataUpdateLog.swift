@@ -5,10 +5,10 @@
 //  Created by Максим Сулим on 24.04.2023.
 //
 
-import UIKit
+import Foundation
 
-//свойство, хранящее 
+//свойство проверяет наличие токена
 protocol DataUpdateLogProtocol {
-    func loginCheck(isLogin: Bool)
+    func loginCheck()
 }
 

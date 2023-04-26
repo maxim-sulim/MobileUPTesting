@@ -7,11 +7,9 @@
 
 import Foundation
 
-//https://api.vk.com/method/photos.get
-
 protocol AlbumRequestModelProtocol {
-    var owner_id: String { get set } //128666765
-    var album_id: String { get set } //266310117
+    var owner_id: String { get set } 
+    var album_id: String { get set }
     var access_token: String { get set }
 }
 
@@ -22,7 +20,7 @@ struct AlbomRequest: AlbumRequestModelProtocol {
     var access_token: String
 }
 
-//parsing
+//MARK: модель для парсинга JSON
 
 struct Albums: Decodable {
     var response: Album
@@ -35,7 +33,7 @@ struct Album: Decodable {
 
 struct Image: Decodable {
     var sizes: [InfoImage]
-    var date: Int //doubl?
+    var date: Int 
     
     }
 

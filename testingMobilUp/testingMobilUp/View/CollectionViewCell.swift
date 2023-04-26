@@ -15,6 +15,8 @@ class CollectionViewCell: UICollectionViewCell {
         didSet {
             if let image = album?.imageAlbomData {
                 imageAlbum.image = UIImage(data: image)
+                imageAlbum.translatesAutoresizingMaskIntoConstraints = false
+                imageAlbum.backgroundColor = .gray
             }
         }
     }

@@ -7,33 +7,42 @@
 
 import UIKit
 import WebKit
+import Foundation
 
 class CollectionViewController: UIViewController {
    
+    private var storage: UserStorageProtocol = UserStorage()
     
+    
+    @IBAction func logout(_ sender: Any) {
+        storage.removeAll()
+        self.navigationController?.dismiss(animated: true)
+    }
     @IBOutlet weak var albumCollection: UICollectionView!
     
-    var albomDataImageArray:[AlbumModel] = []
+    var offset: CGFloat = 2
+    var countCells = 2
+    var albomDataImageArray = [AlbumModel]()// храрение дейты и даты
     var arrUrlImage: [String?] = []
-    var request: AlbumRequestModelProtocol = AlbomRequest(owner_id: "-128666765",
-                                                          album_id: "266310117",
-                                                          access_token: "vk1.a.6mTzFI_5fGKa77r2adPyV4c0L2zRpDVzUnc_uagJV-Z9s1Cf8q0mCpGbwEtojsLTg9mXUedQz1WY3rXbKQmp6cd0d0chGR8b5zClgkMnv0_3iEGw9Z7rCphhrPnn0I3PkHbJX-Q-7tfKd7YDTQOyQjSwR_a_-rGmlDIO6JhcGDhG2HG_pt3UUqzQcVMGfe9k")
+    var arrDateUnix: [Int] = []
     
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.albumCollection.dataSource = self
         self.albumCollection.delegate = self
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getImage(token: "vk1.a.6mTzFI_5fGKa77r2adPyV4c0L2zRpDVzUnc_uagJV-Z9s1Cf8q0mCpGbwEtojsLTg9mXUedQz1WY3rXbKQmp6cd0d0chGR8b5zClgkMnv0_3iEGw9Z7rCphhrPnn0I3PkHbJX-Q-7tfKd7YDTQOyQjSwR_a_-rGmlDIO6JhcGDhG2HG_pt3UUqzQcVMGfe9k")
-        
+        if albomDataImageArray.isEmpty {
+            getImage()
+        }
     }
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       super.prepare(for: segue, sender: sender)
         if segue.identifier == "showSegmentVC" {
             if let vc = segue.destination as? SegmetCollectionViewController {
                 let album = sender as? [AlbumModel]
@@ -45,14 +54,18 @@ class CollectionViewController: UIViewController {
     
     //MARK:  работа с сетью
     // парсинг ответа вк
-  private func getImage (token: String) {
+    private func getImage () {
+        
+        let token = storage.load()
+        let veryToken = token.token
+        
         var urlComp = URLComponents()
         urlComp.scheme = "https"
         urlComp.host = "api.vk.com"
         urlComp.path = "/method/photos.get"
         
         urlComp.queryItems = [
-            URLQueryItem(name: "access_token", value: token),
+            URLQueryItem(name: "access_token", value: veryToken),
             URLQueryItem(name: "owner_id", value: "-128666765"),
             URLQueryItem(name: "album_id", value: "266310117"),
             URLQueryItem(name: "v", value: "5.131")
@@ -60,66 +73,76 @@ class CollectionViewController: UIViewController {
         
         let urlRequest = URLRequest(url: urlComp.url!)
         URLSession.shared.dataTask(with: urlRequest) { data , response , error in
-        if let error = error {
-            print("error")
-            //alert
-            return
-        }
-        guard let data = data else { return }
-        
-        do {
-           let arrJs = try? JSONDecoder().decode(Albums.self, from: data)
-            let arrItems = arrJs?.response.items
-            let count = arrItems?.count
-            
-            // добираемся до url и добавляем в массив
-            guard let count = count else { return }
-            for i in 0..<count {
-                
-                let item = arrItems![i]   // 30 items
-                let image = item
-                let urlImage = image.sizes
-                let arrImageUrl = urlImage.last
-                let imageUrl = arrImageUrl?.url
-                self.arrUrlImage.append(imageUrl)
+            if error == nil {
+                guard let data = data else {
+                    return }
+                do {
+                    let arrJs = try? JSONDecoder().decode(Albums.self, from: data)
+                    let arrItems = arrJs?.response.items
+                    let count = arrItems?.count
+                    
+                    // добираемся до url, data и добавляем в массив
+                    guard let count = count else { return }
+                    for i in 0..<count {
+                        
+                        let item = arrItems![i]   // 30 items
+                        let image = item
+                        let urlImage = image.sizes
+                        let data = image.date
+                        self.arrDateUnix.append(data)
+                        let arrImageUrl = urlImage.last
+                        let imageUrl = arrImageUrl?.url
+                        self.arrUrlImage.append(imageUrl)
+                    }
+                    self.loadImage()
+                } catch {
+                    self.outError()
+                }
+            } else {
+                self.outError()
             }
-            self.loadImage()
-        } catch {
-            print(error) //alert
-        }
-        
-        } .resume()
-        
+        }.resume()
     }
     
     private func loadImage() {
         
         let api = arrUrlImage
         let session = URLSession(configuration: .default)
-        
+        var timer = 0
         for i in api {
+            let arrUnix = arrDateUnix[timer]
+            timer += 1
             guard let url = URL(string: i!) else {
-                return //alert
+                self.outError()
+                return
             }
             let task = session.dataTask(with: url) { (data, response, error) in
                 guard let data, error == nil else {
                     return
                 }
-                let photoModel = AlbumModel(imageAlbomData: data)
-                self.albomDataImageArray.append(photoModel)
-                
+                let date = Date.init(timeIntervalSinceReferenceDate: TimeInterval(Double(arrUnix/10000)))
+                let model = AlbumModel(imageAlbomData: data, imageDateUnix: date)
+                self.albomDataImageArray.append(model)
+                DispatchQueue.main.async {
+                    self.albumCollection.reloadData()
+                }
             }
             task.resume()
-            
         }
-        self.albumCollection.reloadData()
     }
     
-    
+    private func outError() {
+        let error = UIAlertController(title: "Ошибка подключения", message: "Просите", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Закрыть", style: .cancel)
+        error.addAction(cancel)
+        self.present(error, animated: true)
+    }
     
 }
 
-extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+//MARK: DATASOURSE DELEGATE
+
+extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         albomDataImageArray.count
@@ -135,9 +158,21 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let album = albomDataImageArray
-        
         self.performSegue(withIdentifier: "showSegmentVC", sender: album)
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let frameVC = collectionView.frame
+        let widthCell = frameVC.width / CGFloat(countCells)
+        let heghtCell = widthCell
+        let spasing = CGFloat((countCells + 1)) * offset / CGFloat(countCells)
+        
+        return CGSize(width: widthCell - spasing, height: heghtCell - (offset*2))
+    }
+ 
+   
     
 }
  

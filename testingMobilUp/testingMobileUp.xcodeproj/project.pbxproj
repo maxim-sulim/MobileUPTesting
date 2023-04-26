@@ -24,7 +24,6 @@
 		ABF3C0A729F1E524007FFA30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABF3C0A629F1E524007FFA30 /* Assets.xcassets */; };
 		ABF3C0AA29F1E524007FFA30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF3C0A829F1E524007FFA30 /* LaunchScreen.storyboard */; };
 		ABFCC9CF29F71F3F00DF9D68 /* AlbumRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFCC9CE29F71F3F00DF9D68 /* AlbumRequestModel.swift */; };
-		ABFCC9D929F742FA00DF9D68 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFCC9D829F742FA00DF9D68 /* ImageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +46,6 @@
 		ABF3C0A929F1E524007FFA30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABF3C0AB29F1E524007FFA30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABFCC9CE29F71F3F00DF9D68 /* AlbumRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRequestModel.swift; sourceTree = "<group>"; };
-		ABFCC9D829F742FA00DF9D68 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +66,6 @@
 				AB5DF4BB29F3220B00C3D0A9 /* LoginModel.swift */,
 				AB5DF4CA29F5106600C3D0A9 /* AlbumModel.swift */,
 				ABFCC9CE29F71F3F00DF9D68 /* AlbumRequestModel.swift */,
-				ABFCC9D829F742FA00DF9D68 /* ImageViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,7 +205,6 @@
 				ABF3C0A229F1E522007FFA30 /* ViewController.swift in Sources */,
 				AB5DF4CB29F5106600C3D0A9 /* AlbumModel.swift in Sources */,
 				ABF3C09E29F1E522007FFA30 /* AppDelegate.swift in Sources */,
-				ABFCC9D929F742FA00DF9D68 /* ImageViewModel.swift in Sources */,
 				AB5DF4C029F3246A00C3D0A9 /* CollectionViewController.swift in Sources */,
 				ABF3C0A029F1E522007FFA30 /* SceneDelegate.swift in Sources */,
 				AB5DF4D129F57A2600C3D0A9 /* UserStorage.swift in Sources */,

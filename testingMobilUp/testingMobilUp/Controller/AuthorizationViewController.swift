@@ -10,14 +10,13 @@ import WebKit
 
 class AuthorizationViewController: UIViewController, WKNavigationDelegate, UIWebViewDelegate  {
     
-    var storage: UserStorageProtocol = UserStorage()
-    var codeToken: String?
-    
-    var user: UserProtocolOAthVk = UserVk(uri_vk_app: "https://oauth.vk.com/authorize?",
+   private var storage: UserStorageProtocol = UserStorage()
+  
+   private var user: UserProtocolOAthVk = UserVk(uri_vk_app: "https://oauth.vk.com/authorize?",
                                           client_id: "51623269",
                                           redirect_uri: "https://oauth.vk.com/blank.html",
                                           display: "popup",
-                                          scope: "offline",
+                                          scope: "photos",
                                           response_type: "token",
                                           code: "",
                                           client_secret: "Pqqa7HR9Q0SKGngdtrUa")
@@ -37,28 +36,36 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate, UIWeb
     override func loadView() {
             let webConfiguration = WKWebViewConfiguration()
             webView = WKWebView(frame: .zero, configuration: webConfiguration)
-            //webView.uiDelegate
             webView.navigationDelegate = self
-        
             view = webView
         }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         authorizationVk()
     }
-    
     override func viewDidDisappear(_ animated: Bool) {
-        
+        super.viewDidDisappear(animated)
+        attemptOut()
+    }
+    
+    private func outError() {
+        let error = UIAlertController(title: "Ошибка подключения", message: "Просите", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Закрыть", style: .cancel)
+        error.addAction(cancel)
+        self.present(error, animated: true)
+    }
+    private func attemptOut() {
         let alertController = UIAlertController(title: "Предупреждение", message: "точно выйти?", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        let dontCancel = UIAlertAction(title: "Нет", style: .default)
+        alertController.addAction(dontCancel)
         alertController.addAction(cancel)
         self.present(alertController, animated: true)
-        
     }
     
     //MARK: раобота с сетью
@@ -68,7 +75,7 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate, UIWeb
         guard let url = webView.url,
               url.path == "/blank.html",
               let fragment = url.fragment else {
-            return .allow//alert
+            return .allow
         }
         
         let parsing = fragment.components(separatedBy: "&")
@@ -80,23 +87,22 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate, UIWeb
                 dict[key] = value
                 return dict
             }
-        if let accessTocen = parsing["access_token"],
-           let sessionSec = parsing["expires_in"],
+        if let accessToken = parsing["access_token"],
+           let sessionSec = parsing["expire_in"],
            let userIdStr = parsing["user_id"] {
         
-            userId.userId = userIdStr
-            //storage.save(loginModelProtocol: userId)
-            sessionToken.sessionToken = sessionSec
-            modelToken.token = accessTocen
-            //storage.save(loginModelProtocol: modelToken)
+            let loginModel = LoginModel(token: accessToken,
+                                        sessionToken: sessionSec,
+                                        userId: userIdStr)
             
+            storage.save(loginModelProtocol: loginModel)
+                        
             self.dismiss(animated: true) {
                    // переход через делегат
-                self.handleCheckLogDelegate?.loginCheck(isLogin: true)
-            
+                self.handleCheckLogDelegate?.loginCheck()
               }
         } else {
-            //alert
+            outError()
         }
         return .cancel
     }
@@ -122,7 +128,7 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate, UIWeb
                 self.webView.load(urlRequest)
             }
     }
-    // запрос на получение токена
+    // получение токена, если будем использовать code
     private func parsToken (code: String) {
         var urlComp = URLComponents()
         urlComp.scheme = "https"
@@ -141,6 +147,4 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate, UIWeb
             self.webView.load(urlRequest)
         }
     }
-    
-    
 }

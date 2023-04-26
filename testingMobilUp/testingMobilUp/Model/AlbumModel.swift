@@ -8,16 +8,11 @@
 import Foundation
 
 protocol AlbumModelProtocol {
-    //var idAlbum: String { get set }
-    var imageAlbomData: Data { get set } //data
-    //var imageCount: Int { get set }
+    var imageAlbomData: Data? { get set }
+    var imageDateUnix: Date? { get set }
 }
 
-
-
 struct AlbumModel: AlbumModelProtocol {
-    var imageAlbomData: Data //data
-    //var imageCount: Int
-    //var imageDataUnix: "String"
-    //var urlImage: "String"
+    var imageAlbomData: Data?
+    var imageDateUnix: Date?
 }
