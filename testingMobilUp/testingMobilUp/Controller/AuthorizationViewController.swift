@@ -61,7 +61,7 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate, UIWeb
     }
     private func attemptOut() {
         let alertController = UIAlertController(title: "Предупреждение", message: "точно выйти?", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancel = UIAlertAction(title: "Выйти", style: .cancel)
         let dontCancel = UIAlertAction(title: "Нет", style: .default)
         alertController.addAction(dontCancel)
         alertController.addAction(cancel)
@@ -127,24 +127,5 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate, UIWeb
                 let urlRequest = URLRequest(url: urlComp.url!)
                 self.webView.load(urlRequest)
             }
-    }
-    // получение токена, если будем использовать code
-    private func parsToken (code: String) {
-        var urlComp = URLComponents()
-        urlComp.scheme = "https"
-        urlComp.host = "oauth.vk.com"
-        urlComp.path = "/access_token"
-        
-        urlComp.queryItems = [
-            URLQueryItem(name: "client_id", value: user.client_id),
-            URLQueryItem(name: "client_secret", value: user.client_secret),
-            URLQueryItem(name: "redirect_uri", value: user.redirect_uri),
-            URLQueryItem(name: "code", value: code)
-        ]
-        
-        DispatchQueue.main.async {
-            let urlRequest = URLRequest(url: urlComp.url!)
-            self.webView.load(urlRequest)
-        }
     }
 }

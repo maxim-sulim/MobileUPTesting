@@ -11,12 +11,12 @@ class SegmetCollectionViewController: UIViewController {
 
     @IBOutlet weak var segmentCollection: UICollectionView!
     
-    
     @IBAction func shareActon(_ sender: Any) {
         
-       let avc = UIActivityViewController(activityItems: selectedImage, applicationActivities: nil)
+        let avc = UIActivityViewController(activityItems: selectedImage, applicationActivities: nil)
         avc.completionWithItemsHandler = { _, bool, _, _ in
             if bool {
+                
             }
         }
         present(avc, animated: true)
@@ -31,19 +31,15 @@ class SegmetCollectionViewController: UIViewController {
         self.segmentCollection.dataSource = self
         if let topItem = navigationController?.navigationBar.topItem {
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            topItem.backBarButtonItem?.tintColor = .black
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         segmentCollection.reloadData()
-        
-       // self.navigationItem.title
     }
-
     
-
 }
 
 // MARK: DATASOURSE DELEGATE
@@ -57,6 +53,7 @@ extension SegmetCollectionViewController: UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "almubCell", for: indexPath) as? SegmentCollectionViewCell {
             itemCell.album = imageCollectionArray[indexPath.row]
+            
             let title = imageCollectionArray[indexPath.row].imageDateUnix!
             let calendar = Calendar.current
             let componentsTitle = calendar.dateComponents([.day, .month,.year,], from: title)
@@ -69,7 +66,7 @@ extension SegmetCollectionViewController: UICollectionViewDelegate,
         }
         return UICollectionViewCell()
     }
-    
+    /*
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let cell = collectionView.cellForItem(at: indexPath) as! SegmentCollectionViewCell
@@ -84,7 +81,7 @@ extension SegmetCollectionViewController: UICollectionViewDelegate,
             selectedImage.remove(at: index)
         }
     }
-    
+    */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let frameVC = collectionView.frame
         let widthCell = frameVC.width

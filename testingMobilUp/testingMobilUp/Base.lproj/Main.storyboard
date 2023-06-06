@@ -113,53 +113,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C6g-uU-hot">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QBW-T3-SPS">
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="0.0" id="XHU-pZ-whi">
-                                    <size key="itemSize" width="186" height="186"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UMv-xM-cqs">
+                                    <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="2"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="albumCell" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="albumCell" translatesAutoresizingMaskIntoConstraints="NO" id="s0R-tc-YdM" customClass="CollectionViewCell" customModule="testingMobileUp" customModuleProvider="target">
-                                        <rect key="frame" x="2" y="2" width="186" height="186"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="albumCell" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="albumCell" id="oQS-ke-BMZ" customClass="CollectionViewCell" customModule="testingMobileUp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3Q2-Hh-eOB">
-                                            <rect key="frame" x="0.0" y="0.0" width="186" height="186"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iP9-U8-wSf">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KHM-b1-kFz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="186" height="186"/>
+                                                <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EQw-bt-5Q7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="KHM-b1-kFz" firstAttribute="leading" secondItem="3Q2-Hh-eOB" secondAttribute="leading" id="Pfa-wK-MSM"/>
-                                                <constraint firstAttribute="trailing" secondItem="KHM-b1-kFz" secondAttribute="trailing" id="cei-SD-exR"/>
-                                                <constraint firstItem="KHM-b1-kFz" firstAttribute="top" secondItem="3Q2-Hh-eOB" secondAttribute="top" id="e8g-rz-T8f"/>
-                                                <constraint firstAttribute="bottom" secondItem="KHM-b1-kFz" secondAttribute="bottom" id="fmQ-70-xb6"/>
+                                                <constraint firstAttribute="bottom" secondItem="EQw-bt-5Q7" secondAttribute="bottom" id="1FW-2B-Lrt"/>
+                                                <constraint firstItem="EQw-bt-5Q7" firstAttribute="top" secondItem="iP9-U8-wSf" secondAttribute="top" id="2le-kU-ZeJ"/>
+                                                <constraint firstItem="EQw-bt-5Q7" firstAttribute="leading" secondItem="iP9-U8-wSf" secondAttribute="leading" id="B3U-7a-Pr7"/>
+                                                <constraint firstAttribute="trailing" secondItem="EQw-bt-5Q7" secondAttribute="trailing" id="nba-FM-0PU"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="186" height="186"/>
                                         <connections>
-                                            <outlet property="imageAlbum" destination="KHM-b1-kFz" id="e6D-Hp-ou3"/>
+                                            <outlet property="imageAlbum" destination="EQw-bt-5Q7" id="8aM-ee-kRp"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="Opn-uH-ige" id="ZHV-ze-iJs"/>
-                                    <outlet property="delegate" destination="Opn-uH-ige" id="iS6-dy-0yr"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hZ8-M5-tEE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="C6g-uU-hot" firstAttribute="leading" secondItem="hZ8-M5-tEE" secondAttribute="leading" id="0ly-xM-FYV"/>
-                            <constraint firstItem="hZ8-M5-tEE" firstAttribute="bottom" secondItem="C6g-uU-hot" secondAttribute="bottom" id="8F2-84-Cgm"/>
-                            <constraint firstItem="C6g-uU-hot" firstAttribute="top" secondItem="hZ8-M5-tEE" secondAttribute="top" id="94k-z7-NZe"/>
-                            <constraint firstItem="hZ8-M5-tEE" firstAttribute="trailing" secondItem="C6g-uU-hot" secondAttribute="trailing" id="wog-x7-kgP"/>
+                            <constraint firstItem="QBW-T3-SPS" firstAttribute="leading" secondItem="hZ8-M5-tEE" secondAttribute="leading" id="C3C-Pz-WXQ"/>
+                            <constraint firstItem="QBW-T3-SPS" firstAttribute="top" secondItem="hZ8-M5-tEE" secondAttribute="top" id="kUM-18-LBX"/>
+                            <constraint firstItem="hZ8-M5-tEE" firstAttribute="bottom" secondItem="QBW-T3-SPS" secondAttribute="bottom" id="qEJ-dB-DVV"/>
+                            <constraint firstItem="hZ8-M5-tEE" firstAttribute="trailing" secondItem="QBW-T3-SPS" secondAttribute="trailing" id="xjm-WF-rEb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="MobileUp Gallery" id="TcL-JM-Q95">
@@ -171,7 +166,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="albumCollection" destination="C6g-uU-hot" id="BTu-Tr-wVH"/>
+                        <outlet property="albumCollection" destination="QBW-T3-SPS" id="Og5-yn-hMN"/>
                         <segue destination="bb4-Yq-vhF" kind="push" identifier="showSegmentVC" id="qX4-R6-AGJ"/>
                     </connections>
                 </viewController>

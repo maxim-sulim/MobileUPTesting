@@ -165,14 +165,12 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let frameVC = collectionView.frame
-        let widthCell = frameVC.width / CGFloat(countCells)
+        let widthCell = (frameVC.width / CGFloat(countCells)) - 2
         let heghtCell = widthCell
         let spasing = CGFloat((countCells + 1)) * offset / CGFloat(countCells)
         
         return CGSize(width: widthCell - spasing, height: heghtCell - (offset*2))
     }
  
-   
-    
 }
  

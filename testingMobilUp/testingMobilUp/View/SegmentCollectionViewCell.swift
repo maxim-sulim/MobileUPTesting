@@ -10,7 +10,6 @@ import UIKit
 class SegmentCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var segmentImage: UIImageView!
-        
     var album: AlbumModel? {
         didSet {
             guard let image = album?.imageAlbomData else { return }
